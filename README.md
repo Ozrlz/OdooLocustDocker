@@ -10,9 +10,14 @@ Params:
     * ODOO_DATABASE = odoo database
     * ODOO_PORT = odoo port
 
-In case you want to run it with odoo not using a docker-compose, use --link
-* > docker run -e ODOO_login=user -e ODOO_PASSWORD=odoo \
-    -e ODOO_HOST="odoo" -e ODOO_DATABASE="dev" -e ODOO_PORT=8069 \
-    --rm --name pylocust --link odoo:odoo -p 8089:8089 -t odoolocust:1.0
+## First, build the image:
 
-Else, if you are using docker-compose just add it to the network (--network network_id)
+* > docker image build . -t odoolocust:1.0
+
+## Then, just run the container:
+* > docker run -e ODOO_LOGIN=user -e ODOO_PASSWORD=passwd \
+    -e ODOO_HOST=my_hostname -e ODOO_DATABASE="dev" -e ODOO_PORT=8069 \
+    --rm --name pylocust -p 8089:8089 -t odoolocust:1.0
+
+# IMPORTANT NOTE !!!
+If used for testing/dev purposes on o local env, do not use hosts like '127.0.0.1' of 'localhost', since the tests are going to be executed inside a container and localhost will refer to itself (the container) and will return a no conection issue.
