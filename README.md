@@ -4,11 +4,11 @@ This is a repo based on https://github.com/nseinlet/OdooLocust
 
 # How to use it
 Params:
-    * ODOO_LOGIN = odoo user
-    * ODOO_PASSWORD = odoo user password
-    * ODOO_HOST = odoo host
-    * ODOO_DATABASE = odoo database
-    * ODOO_PORT = odoo port
+* ODOO_LOGIN = odoo user
+* ODOO_PASSWORD = odoo user password
+* ODOO_HOST = odoo host
+* ODOO_DATABASE = odoo database
+* ODOO_PORT = odoo port
 
 ## First, build the image:
 
